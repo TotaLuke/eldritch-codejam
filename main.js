@@ -183,27 +183,22 @@ buttons.forEach(elem => {
         })
         if (event.target.classList.contains('veryeasy-button')) {
             deck = buildDeckfromDifficulty(Blue, Brown, Green, 'veryeasy');
-            console.log(deck);
             buttons[buttons.length - 1].classList.add('shuffle-active');
             elem.classList.add('difficulty-active');
         } else if (event.target.classList.contains('easy-button')) {
             deck = shuffle(buildDeckfromDifficulty(Blue, Brown, Green, 'easy'))
-            console.log(deck);
             buttons[buttons.length - 1].classList.add('shuffle-active');
             elem.classList.add('difficulty-active');
         } else if (event.target.classList.contains('normal-button')) {
             deck = shuffle(buildDeckfromDifficulty(Blue, Brown, Green, 'normal'))
-            console.log(deck);
             buttons[buttons.length - 1].classList.add('shuffle-active');
             elem.classList.add('difficulty-active');
         } else if (event.target.classList.contains('hard-button')) {
             deck = shuffle(buildDeckfromDifficulty(Blue, Brown, Green, 'hard'))
-            console.log(deck);
             buttons[buttons.length - 1].classList.add('shuffle-active');
             elem.classList.add('difficulty-active');
         } else if (event.target.classList.contains('veryhard-button')) {
             deck = buildDeckfromDifficulty(Blue, Brown, Green, 'veryhard');
-            console.log(deck);
             buttons[buttons.length - 1].classList.add('shuffle-active');
             elem.classList.add('difficulty-active');
         } else if (event.target.classList.contains('shuffle-button')) {
