@@ -242,7 +242,7 @@ body {
 
 .deck {
     display: flex;
-    width: 26%;
+    width: 200px;
     background-image: url("./assets/mythicCardBackground.png");
     background-size: contain;
     background-repeat: no-repeat;
@@ -328,6 +328,10 @@ body {
     .finished::after {
         right: -20px;
     }
+    
+    .deck {
+        width: 150px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -341,5 +345,9 @@ body {
 
     .difficulty {
         font-size: 10px;
+    }
+    
+    .deck {
+        width: 100px;
     }
 }
