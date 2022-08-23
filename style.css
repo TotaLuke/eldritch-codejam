@@ -259,7 +259,7 @@ body {
 
 .open-card {
     display: flex;
-    width: 26%;
+    width: 200px;
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -332,6 +332,10 @@ body {
     .deck {
         width: 150px;
     }
+    
+    .open-card {
+        width: 150px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -348,6 +352,10 @@ body {
     }
     
     .deck {
+        width: 100px;
+    }
+    
+     .open-card {
         width: 100px;
     }
 }
