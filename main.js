@@ -23,6 +23,10 @@ const tbrc = document.querySelector('.third-brown-count');
 const tgrc = document.querySelector('.third-green-count');
 const tblc = document.querySelector('.third-blue-count');
 
+const firstStageTitle = document.querySelector('.first-title');
+const secondStageTitle = document.querySelector('.second-title');
+const thirdStageTitle = document.querySelector('.third-title');
+
 const deckImage = document.querySelector('.deck');
 const openCard = document.querySelector('.open-card');
 
@@ -43,6 +47,13 @@ azathothImage.addEventListener('click', () => {
     deckImage.classList.remove('deck-active');
     openCard.style.background = 'none';
     trackContainer.classList.remove('track-active');
+    buttons.forEach(elem => {
+        elem.classList.remove('difficulty-active');
+    })
+    buttons[buttons.length - 1].classList.remove('shuffle-active');
+    firstStageTitle.classList.remove('finished');
+    secondStageTitle.classList.remove('finished');
+    thirdStageTitle.classList.remove('finished');
 })
 
 cthulthuImage.addEventListener('click', () => {
@@ -55,6 +66,13 @@ cthulthuImage.addEventListener('click', () => {
     deckImage.classList.remove('deck-active');
     openCard.style.background = 'none';
     trackContainer.classList.remove('track-active');
+    buttons.forEach(elem => {
+        elem.classList.remove('difficulty-active');
+    })
+    buttons[buttons.length - 1].classList.remove('shuffle-active');
+    firstStageTitle.classList.remove('finished');
+    secondStageTitle.classList.remove('finished');
+    thirdStageTitle.classList.remove('finished');
 })
 
 iogSothothImage.addEventListener('click', () => {
@@ -67,6 +85,13 @@ iogSothothImage.addEventListener('click', () => {
     deckImage.classList.remove('deck-active');
     openCard.style.background = 'none';
     trackContainer.classList.remove('track-active');
+    buttons.forEach(elem => {
+        elem.classList.remove('difficulty-active');
+    })
+    buttons[buttons.length - 1].classList.remove('shuffle-active');
+    firstStageTitle.classList.remove('finished');
+    secondStageTitle.classList.remove('finished');
+    thirdStageTitle.classList.remove('finished');
 })
 
 shubNiggurathImage.addEventListener('click', () => {
@@ -79,6 +104,13 @@ shubNiggurathImage.addEventListener('click', () => {
     deckImage.classList.remove('deck-active');
     openCard.style.background = 'none';
     trackContainer.classList.remove('track-active');
+    buttons.forEach(elem => {
+        elem.classList.remove('difficulty-active');
+    })
+    buttons[buttons.length - 1].classList.remove('shuffle-active');
+    firstStageTitle.classList.remove('finished');
+    secondStageTitle.classList.remove('finished');
+    thirdStageTitle.classList.remove('finished');
 })
 
 deckImage.addEventListener('click', () => {
@@ -93,7 +125,12 @@ deckImage.addEventListener('click', () => {
         openCard.style.backgroundRepeat = "no-repeat";
         rewrite(gameDeck);
 
+        if (gameDeck[0].flat(Infinity).length === 0) {
+            firstStageTitle.classList.add('finished');
+        }
+
     } else if (!gameDeck[1].every(val => val.length === 0)) {
+
         while (!popCard) {
             popCard = deleteCard(gameDeck[1]);
         }
@@ -101,6 +138,11 @@ deckImage.addEventListener('click', () => {
         openCard.style.backgroundSize = "contain";
         openCard.style.backgroundRepeat = "no-repeat";
         rewrite(gameDeck);
+
+        if (gameDeck[1].flat(Infinity).length === 0) {
+            secondStageTitle.classList.add('finished');
+        }
+
     } else if (!gameDeck[2].every(val => val.length === 0)) {
         while (!popCard) {
             popCard = deleteCard(gameDeck[2]);
@@ -109,6 +151,10 @@ deckImage.addEventListener('click', () => {
         openCard.style.backgroundSize = "contain";
         openCard.style.backgroundRepeat = "no-repeat";
         rewrite(gameDeck);
+
+        if (gameDeck[2].flat(Infinity).length === 0) {
+            thirdStageTitle.classList.add('finished');
+        }
     }
     if (gameDeck.flat(Infinity).length === 0) {
         deckImage.classList.remove('deck-active');
@@ -124,6 +170,9 @@ const deleteCard = (deckArray) => {
 
 buttons.forEach(elem => {
     elem.addEventListener('click', (event) => {
+        firstStageTitle.classList.remove('finished');
+        secondStageTitle.classList.remove('finished');
+        thirdStageTitle.classList.remove('finished');
         deckImage.classList.remove('deck-active');
         openCard.style.background = 'none';
         trackContainer.classList.remove('track-active');
@@ -134,18 +183,27 @@ buttons.forEach(elem => {
         })
         if (event.target.classList.contains('veryeasy-button')) {
             deck = buildDeckfromDifficulty(Blue, Brown, Green, 'veryeasy');
+            console.log(deck);
             buttons[buttons.length - 1].classList.add('shuffle-active');
             elem.classList.add('difficulty-active');
         } else if (event.target.classList.contains('easy-button')) {
+            deck = shuffle(buildDeckfromDifficulty(Blue, Brown, Green, 'easy'))
+            console.log(deck);
             buttons[buttons.length - 1].classList.add('shuffle-active');
             elem.classList.add('difficulty-active');
         } else if (event.target.classList.contains('normal-button')) {
+            deck = shuffle(buildDeckfromDifficulty(Blue, Brown, Green, 'normal'))
+            console.log(deck);
             buttons[buttons.length - 1].classList.add('shuffle-active');
             elem.classList.add('difficulty-active');
         } else if (event.target.classList.contains('hard-button')) {
+            deck = shuffle(buildDeckfromDifficulty(Blue, Brown, Green, 'hard'))
+            console.log(deck);
             buttons[buttons.length - 1].classList.add('shuffle-active');
             elem.classList.add('difficulty-active');
         } else if (event.target.classList.contains('veryhard-button')) {
+            deck = buildDeckfromDifficulty(Blue, Brown, Green, 'veryhard');
+            console.log(deck);
             buttons[buttons.length - 1].classList.add('shuffle-active');
             elem.classList.add('difficulty-active');
         } else if (event.target.classList.contains('shuffle-button')) {
@@ -153,6 +211,7 @@ buttons.forEach(elem => {
             rewrite(gameDeck);
             deckImage.classList.add('deck-active');
             trackContainer.classList.add('track-active');
+            buttons[buttons.length - 1].classList.remove('shuffle-active');
         }
     })
 })
@@ -163,7 +222,6 @@ const buildDeckfromDifficulty = (Blue, Brown, Green, difficulty) => {
     let easyCards = [];
     let normalCards = [];
     let hardCards = [];
-
     fullDeck.forEach(elem => {
         if (elem.difficulty === 'easy') {
             easyCards.push(elem);
@@ -176,6 +234,18 @@ const buildDeckfromDifficulty = (Blue, Brown, Green, difficulty) => {
     switch (difficulty) {
         case 'veryeasy': {
             return [...shuffle(easyCards), ...shuffle(normalCards)];
+        }
+        case 'easy': {
+            return [...shuffle(easyCards), ...shuffle(normalCards)];
+        }
+        case 'normal': {
+            return [...shuffle(easyCards), ...shuffle(normalCards), ...shuffle(hardCards)];
+        }
+        case 'hard': {
+            return [...shuffle(normalCards), ...shuffle(hardCards)];
+        }
+        case 'veryhard': {
+            return [...shuffle(hardCards), ...shuffle(normalCards)];
         }
     }
 
@@ -213,17 +283,6 @@ const shuffleDeck = (boss) => {
     const second = stagesCreate(boss.secondStage, deck);
     const third = stagesCreate(boss.thirdStage, deck);
 
-    // fgrc.textContent = first[0].length;
-    // fbrc.textContent = first[1].length;
-    // fblc.textContent = first[2].length;
-
-    // sgrc.textContent = second[0].length;
-    // sbrc.textContent = second[1].length;
-    // sblc.textContent = second[2].length;
-
-    // tgrc.textContent = third[0].length;
-    // tbrc.textContent = third[1].length;
-    // tblc.textContent = third[2].length;
     return [first, second, third];
 
 
@@ -247,14 +306,11 @@ const rewrite = (array) => {
 function shuffle(array) {
     let currentIndex = array.length, randomIndex;
 
-    // While there remain elements to shuffle.
     while (currentIndex != 0) {
 
-        // Pick a remaining element.
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
 
-        // And swap it with the current element.
         [array[currentIndex], array[randomIndex]] = [
             array[randomIndex], array[currentIndex]];
     }
