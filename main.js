@@ -36,7 +36,6 @@ let choosedAncient = {};
 let deck = [];
 let gameDeck = [];
 
-
 azathothImage.addEventListener('click', () => {
     cthulthuImage.classList.remove('active-ancient');
     iogSothothImage.classList.remove('active-ancient');
