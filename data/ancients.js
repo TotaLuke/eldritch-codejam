@@ -1,10 +1,8 @@
-import Ancients from '../assets/Ancients/index'
-
 const ancientsData = [
   {
     id: 'azathoth',
     name: 'azathoth',
-    cardFace: Ancients.azathoth,
+    cardFace: "./assets/Ancients/Azathoth.jpg",
     firstStage: {
       greenCards: 1,
       blueCards: 1,
@@ -24,7 +22,7 @@ const ancientsData = [
   {
     id: 'cthulhu',
     name: 'cthulhu',
-    cardFace: Ancients.cthulhu,
+    cardFace: "./assets/Ancients/Cthulhu.jpg",
     firstStage: {
       greenCards: 0,
       blueCards: 2,
@@ -44,7 +42,7 @@ const ancientsData = [
   {
     id: 'iogSothoth',
     name: 'iogSothoth',
-    cardFace: Ancients.iogSothoth,
+    cardFace: "./assets/Ancients/IogSothoth.jpg",
     firstStage: {
       greenCards: 0,
       blueCards: 1,
@@ -64,7 +62,7 @@ const ancientsData = [
   {
     id: 'shubNiggurath',
     name: 'shubNiggurath',
-    cardFace: Ancients.shubNiggurath,
+    cardFace: "./assets/Ancients/ShubNiggurath.jpg",
     firstStage: {
       greenCards: 1,
       blueCards: 1,
@@ -83,4 +81,4 @@ const ancientsData = [
   },
 ]
 
-export default ancientsData
+export { ancientsData } 

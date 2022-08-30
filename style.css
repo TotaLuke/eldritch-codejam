@@ -1,0 +1,361 @@
+body {
+    margin: 0 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    background-image: url("./assets/home.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+.ancients-title {
+    margin: 10px 0 25px 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 32px;
+    color: blueviolet;
+    letter-spacing: 5px;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.ancients-container {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 15px;
+    width: 100%;
+    margin-bottom: 30px;
+
+}
+
+.Azathoth {
+    cursor: pointer;
+    border: 3px solid #000;
+    background-image: url("./assets/Ancients/Azathoth.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    width: 20%;
+    aspect-ratio: 0.769;
+    transition: all .3s ease-in;
+}
+
+.Cthulthu {
+    cursor: pointer;
+    border: 3px solid #000;
+    background-image: url("./assets/Ancients/Cthulthu.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    width: 20%;
+    aspect-ratio: 0.769;
+    transition: all .3s ease-in;
+}
+
+.IogSothoth {
+    cursor: pointer;
+    border: 3px solid #000;
+    background-image: url("./assets/Ancients/IogSothoth.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    width: 20%;
+    aspect-ratio: 0.769;
+    transition: all .3s ease-in;
+}
+
+.ShubNiggurath {
+    cursor: pointer;
+    border: 3px solid #000;
+    background-image: url("./assets/Ancients/ShubNiggurath.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    width: 20%;
+    aspect-ratio: 0.769;
+    transition: all .3s ease-in;
+}
+
+.active-ancient {
+    border: 3px solid rgb(255, 0, 0);
+
+}
+
+.Azathoth:hover,
+.Cthulthu:hover,
+.IogSothoth:hover,
+.ShubNiggurath:hover {
+    scale: 1.1;
+}
+
+.main-container {
+    display: flex;
+    width: 100%;
+    column-gap: 20px;
+    margin-bottom: 40px;
+}
+
+.difficulty-container {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+    opacity: 0;
+    transition: opacity .3s ease-in;
+}
+
+.difficulty-title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 24px;
+    color: blueviolet;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.difficulty {
+    cursor: pointer;
+    width: 50%;
+    color: blueviolet;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid blueviolet;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    transition: all .3s ease-in;
+
+}
+
+.difficulty:hover {
+    color: rgb(255, 255, 255);
+}
+
+.difficulty-active {
+    background: rgb(255, 0, 0, 1);
+}
+
+.shuffle-button {
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease-in;
+}
+
+.shuffle-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.deck-container {
+    display: flex;
+    column-gap: 30px;
+    width: 70%;
+}
+
+.track-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33%;
+    color: blueviolet;
+    opacity: 0;
+    transition: opacity .3s ease-in;
+}
+
+.track-active {
+    opacity: 1;
+}
+
+.stage-title {
+    position: relative;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    margin-bottom: 10px;
+    transition: all .3s ease-in;
+}
+
+.finished {
+    text-decoration: line-through;
+    color: red;
+}
+
+.finished::after {
+    content: "\2713";
+    position: absolute;
+    right: -30px;
+    top: -2px;
+}
+
+.first-green-count,
+.second-green-count,
+.third-green-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 25px;
+    background-color: greenyellow;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+.first-brown-count,
+.second-brown-count,
+.third-brown-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 25px;
+    background-color: burlywood;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+.first-blue-count,
+.second-blue-count,
+.third-blue-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 25px;
+    background-color: rgb(36, 164, 250);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+.first-card-counts,
+.second-card-counts,
+.third-card-counts {
+    display: flex;
+    column-gap: 5px;
+    margin-bottom: 15px;
+}
+
+.deck {
+    display: flex;
+    width: 200px;
+    background-image: url("./assets/mythicCardBackground.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s ease-in;
+}
+
+.deck-active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.open-card {
+    display: flex;
+    width: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    margin: 0 20px;
+}
+
+.git {
+    width: 121px;
+    height: 45px;
+    background-image: url(./assets/github.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.rss {
+    width: 121px;
+    height: 45px;
+    background-image: url(./assets/rs_school_js.svg);
+    filter: invert(1);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 700px) {
+    .ancients-title {
+        margin: 5px 0 10px 0;
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+
+    .difficulty-title {
+        font-size: 16px;
+    }
+
+    .difficulty {
+        font-size: 12px;
+    }
+
+    .stage-title {
+        font-size: 12px;
+    }
+
+    body {
+        font-size: 12px;
+    }
+
+    .first-green-count, .second-green-count, .third-green-count, .first-blue-count, .second-blue-count, .third-blue-count, 
+    .first-brown-count, .second-brown-count, .third-brown-count {
+        width: 24px;
+        height: 24px;
+    }
+
+    .deck-container {
+        column-gap: 15px;
+    }
+
+    .main-container {
+        column-gap: 10px;
+    }
+
+    .finished::after {
+        right: -20px;
+    }
+    
+    .deck {
+        width: 150px;
+    }
+    
+    .open-card {
+        width: 150px;
+    }
+}
+
+@media (max-width: 500px) {
+    .finished::after {
+        right: -15px;
+    }
+
+    .difficulty-title {
+        font-size: 12px;
+    }
+
+    .difficulty {
+        font-size: 10px;
+    }
+    
+    .deck {
+        width: 100px;
+    }
+    
+     .open-card {
+        width: 100px;
+    }
+}
