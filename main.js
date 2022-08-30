@@ -39,7 +39,7 @@ let gameDeck = [];
 azathothImage.addEventListener('click', () => {
     cthulthuImage.classList.remove('active-ancient');
     iogSothothImage.classList.remove('active-ancient');
-    shubNiggurathImage.classList.remove('acive-ancient');
+    shubNiggurathImage.classList.remove('active-ancient');
     azathothImage.classList.add('active-ancient');
     difficultyContainer.style.opacity = '1';
     choosedAncient = Ancients.ancientsData[0];
